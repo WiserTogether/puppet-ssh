@@ -9,10 +9,14 @@ class ssh {
         owner   => "root",
     }
 
-    service { "ssh":
+    service { "sshd":
         require => Package[openssh-server],
         subscribe => File[sshdconfig],
         enable  => true,
         ensure  => running,
+        hasrestart => true,
+        hasstatus => true,
+        restart => "/etc/init.d/sshd restart",
+        status => "/etc/init.d/sshd status"
     }
 }
