@@ -1,11 +1,11 @@
-class ssh {
+class sshd {
     package { "openssh-server":
         ensure  => installed
     }
 
     file { "sshdconfig":
         name    => "/etc/ssh/sshd_config",
-        content => template("ssh/sshd_config.erb"),
+        content => template("sshd/sshd_config.erb"),
         owner   => "root",
     }
 
