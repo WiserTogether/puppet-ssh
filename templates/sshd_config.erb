@@ -28,7 +28,10 @@ PermitEmptyPasswords no
 PermitUserEnvironment no
 
 # Per NSA RHEL Security Guide, Section 3.5.2.10
-Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+# Note: The security guide advises only using ctr ciphers, but Ruby's
+#       Net::SSH gem only uses cbc ciphers. CBC ciphers are enabled here
+#       for vagrant compatability.
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,aes192-cbc,aes256-cbc
 
 # Disable password authentication, but still allow PAM to control the session
 PasswordAuthentication no
