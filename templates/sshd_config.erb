@@ -34,7 +34,8 @@ PermitUserEnvironment no
 Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,aes192-cbc,aes256-cbc
 
 # Disable password authentication, but still allow PAM to control the session
-PasswordAuthentication no
+# PasswordAuthentication no
+ PasswordAuthentication yes
 ChallengeResponseAuthentication no
 UsePAM yes
 
@@ -108,7 +109,7 @@ AcceptEnv LC_IDENTIFICATION LC_ALL
 UseDNS no
 #PidFile /var/run/sshd.pid
 #MaxStartups 10
-#PermitTunnel no
+PermitTunnel no
 #ChrootDirectory none
 
 # override default of no subsystems
