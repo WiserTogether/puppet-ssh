@@ -33,9 +33,13 @@ PermitUserEnvironment no
 #       for vagrant compatability.
 Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,aes192-cbc,aes256-cbc
 
-# Disable password authentication, but still allow PAM to control the session
-PasswordAuthentication no
+# Disable password authentication, 
+#PasswordAuthentication no
+PasswordAuthentication yes
+
 ChallengeResponseAuthentication no
+
+#still allow PAM to control the session (necessary for Centrify compatibility)
 UsePAM yes
 
 # Disable X11 Forwarding
