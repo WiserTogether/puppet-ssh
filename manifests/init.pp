@@ -9,9 +9,14 @@ class sshd {
         owner   => "root",
     }
 
+    file { "/etc/banner":
+        source  => "puppet:///modules/sshd/banner",
+        owner   => "root",
+    }
+
     service { "sshd":
         require => Package[openssh-server],
-        subscribe => File[sshdconfig],
+        subscribe => [File[sshdconfig], File["/etc/banner"]],
         enable  => true,
         ensure  => running,
         hasrestart => true,

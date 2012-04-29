@@ -16,13 +16,13 @@ IgnoreRhosts yes
 HostbasedAuthentication no
 
 # Per NSA RHEL Security Guide, Section 3.5.2.6
-#PermitRootLogin no
+PermitRootLogin no
 
 # Per NSA RHEL Security Guide, Section 3.5.2.7
 PermitEmptyPasswords no
 
 # Per NSA RHEL Security Guide, Section 3.5.2.8
-#Banner /some/path
+Banner /etc/banner
 
 # Per NSA RHEL Security Guide, Section 3.5.2.9
 PermitUserEnvironment no
@@ -35,7 +35,7 @@ Ciphers aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,aes192-cbc,aes256-cbc
 
 # Disable password authentication, but still allow PAM to control the session
 # PasswordAuthentication no
- PasswordAuthentication yes
+PasswordAuthentication yes
 
 ChallengeResponseAuthentication no
 
@@ -106,8 +106,9 @@ AcceptEnv LC_IDENTIFICATION LC_ALL
 #UseLogin no
 #UsePrivilegeSeparation yes
 #Compression delayed
-#ClientAliveInterval 0
-#ClientAliveCountMax 3
+
+ClientAliveInterval 3600 
+ClientAliveCountMax 0
 #ShowPatchLevel no
 UseDNS no
 #PidFile /var/run/sshd.pid
